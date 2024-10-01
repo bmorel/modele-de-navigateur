@@ -23,6 +23,9 @@ app.whenReady().then(() => {
   const view = new WebContentsView();
   win.contentView.addChildView(view);
 
+  view.webContents.on('did-start-navigation', (event, url, isInPlace, isMainFrame) => {
+    if(isMainFrame)win.webContents.send('update-address-bar', url);
+  });
   // Always fit the web rendering with the electron windows
   function fitViewToWin() {
     const winSize = win.webContents.getOwnerBrowserWindow().getBounds();

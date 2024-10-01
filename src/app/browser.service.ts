@@ -51,4 +51,9 @@ export class BrowserService {
     this.electronAPI.canGoForward()
       .then((canGoForward : boolean) => this.canGoForward = canGoForward);
   }
+
+  homebutton() {
+    this.goToPage("https://amiens.unilasalle.fr");
+    this.updateHistory();
+  }
 }

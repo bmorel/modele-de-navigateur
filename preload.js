@@ -6,6 +6,7 @@ contextBridge.exposeInMainWorld('electronAPI', {
   goForward: () => ipcRenderer.send('go-forward'),
   refresh: () => ipcRenderer.send('refresh'),
 
+  onAddressBarUpdate: (callback) => ipcRenderer.on('update-address-bar', callback),
   canGoForward: () => ipcRenderer.invoke('can-go-forward'),
   canGoBack: () => ipcRenderer.invoke('can-go-back'),
   goToPage: (url) => ipcRenderer.invoke('go-to-page', url),
