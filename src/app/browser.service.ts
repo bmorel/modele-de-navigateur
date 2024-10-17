@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 
+
 @Injectable({
   providedIn: 'root'
 })
@@ -11,6 +12,7 @@ export class BrowserService {
 
 // @ts-ignore
   electronAPI = window.electronAPI;
+  fetchPage: any;
 
   toogleDevTool() {
     this.electronAPI.toogleDevTool();
@@ -55,5 +57,9 @@ export class BrowserService {
   homebutton() {
     this.goToPage("https://amiens.unilasalle.fr");
     this.updateHistory();
+  }
+
+  crawlingbutton(): Promise<string[]> {
+    return this.electronAPI.crawlingbutton();
   }
 }

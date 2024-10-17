@@ -1,0 +1,6 @@
+<button mat-icon-button (click)="browserService.crawlingbutton()">
+    <mat-icon aria-hidden="false" aria-label="Debug page" fontIcon="system_update"></mat-icon>
+    <ul>
+        <li *ngFor="let link of links">{{ link }}</li>
+    </ul>
+</button>
